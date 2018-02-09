@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login">
+
+    <data>
+        <variable
+            name="loginVM"
+            type="com.example.rajna.mvvmproject.LoginViewModel"></variable>
+        <variable
+            name="loginActivity"
+            type="com.example.rajna.mvvmproject.LoginActivity"></variable>
+    </data>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="@string/email"/>
+
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:text="@={loginVM.email}"
+            android:ems="10"
+            android:hint="@string/emailhint"
+            android:id="@+id/editText" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="@string/password"/>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:text="@={loginVM.password}"
+            android:ems="10"
+            android:hint="@string/passwordhint"
+            android:id="@+id/editText2" />
+
+
+
+
+        <Button
+            android:text="Login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> loginVM.onClickLogin(loginVM.email, loginVM.password)}"
+            android:id="@+id/button" />
+
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="@string/status"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:text="@={loginVM.status}"
+        android:ems="10"
+        android:id="@+id/editText3" />
+
+    </LinearLayout>
+
+
+</layout>
